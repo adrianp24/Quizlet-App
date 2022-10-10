@@ -6,4 +6,6 @@ export class Answer {
         this.isCorrect = isCorrect;
         this.description = description;
     }
+
+   
 }

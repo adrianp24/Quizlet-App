@@ -1,0 +1,19 @@
+<h1>Create Test</h1>
+
+<h4>Input Test Details</h4>
+
+
+<div>Name <input [(ngModel)]="test.name" /></div>
+
+<div>Course <input [(ngModel)]="test.course" /></div>
+
+<button (click)="createTest()">***Create Test***</button>
+
+<div class="question-input-container" *ngFor="let question of test.questions; let i = index">
+    <div>*******Question # {{i + 1}}*******</div>
+    <app-question [question]="question"></app-question>
+    <button (click)="test.deleteQuestion(i)">DELETE QUESTION^^^</button>
+
+</div>
+
+<button (click)="addQuestion()">ADD EXTRA QUESTION</button>

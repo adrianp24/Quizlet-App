@@ -1,0 +1,19 @@
+________________________________________________________________________________________________________________________________
+<br>
+<br>
+<div class="grid">
+    <div class="question-container">
+        Enter Question:
+        <input [(ngModel)]="question.description" />
+    </div>
+    <div>Enter Answers:</div>
+    <div class="answer-input" *ngFor="let answer of question.answers; let i = index">
+        <input [(ngModel)]="answer.description" />
+        <input [(ngModel)]="answer.isCorrect" type="checkbox" /> Correct?
+        <button (click)="question.deleteAnswer(i)">Delete answer</button>
+    </div>
+    <button class="extra-answer-btn button" (click)="question.addExtraAnswer()">Add Extra Answer</button> .
+
+</div>
+
+________________________________________________________________________________________________________________________________

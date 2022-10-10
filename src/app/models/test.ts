@@ -11,6 +11,12 @@ export class Test {
         this.name = name;
     }
 
+    deleteQuestion(index: number) {
+        this.questions.splice(index, 1);
+    }
+
+   
+
     
 
 }

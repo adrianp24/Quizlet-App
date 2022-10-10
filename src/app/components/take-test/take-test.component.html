@@ -1,0 +1,11 @@
+<div *ngIf="displayTestList">
+    <h1>List of tests:</h1>
+    <div (click)="onClickTest()" *ngFor="let test of tests"> <br> {{test.name}}________ {{test.course}}____# questions: {{test.questions.length}}</div>
+</div>
+
+<div *ngIf="!displayTestList">
+    <h1>TAKING TEST</h1>
+    <div *ngFor="let question of test!.questions[0].description ">
+
+    </div>
+</div>

@@ -1,26 +1,965 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Answer } from '../models/answer';
-import { Question } from '../models/question';
 import { Test } from '../models/test';
-import { TestList } from '../models/test-list';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SavedTestsService {
   savedTests: Test[] = [];
-  // testList!: TestList;
 
   constructor() { }
 
+  // this function pretend to get from database a list of tests
+  // DATA is returned in JSON Format
+  // an observable can be subscribed to
+  // this observer goes through the data stream
   getTestList(): Observable<any[]> {
     return new Observable<any[]>((observer) => {
-      setTimeout(function(){
+      setTimeout(function () {
         let testList = [{
-          name: 'plus',
-          course: 'math',
+          name: 'FIRST TEST',
+          course: 'Math',
           questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }]
+        },
+        {
+          name: 'SECOND TEST',
+          course: 'English',
+          questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }]
+        },
+        {
+          name: 'THIRD TEST',
+          course: 'Science',
+          questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }]
+        },
+        {
+          name: 'FOURTH TEST',
+          course: 'History',
+          questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }]
+        },
+        {
+          name: 'FIFTH TEST',
+          course: 'PE',
+          questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }]
+        },
+        {
+          name: 'SIXTH TEST',
+          course: 'ART',
+          questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
             description: '2 plus 2',
             answers: [{
               description: '4', isCorrect: true
@@ -45,31 +984,183 @@ export class SavedTestsService {
           }]
         }];
         observer.next(testList);
+        // once the code gets here it is successful so returns complete(`)
         observer.complete();
-      }, 3000);
+      }, 1000);
     });
   }
 
-  createsQuestions() {
-    let questions: Question[] = [];
-
-    for (let j = 0; j < 10; j++) {
-      let answers: Answer[] = [];
-      answers.push(new Answer(true, ''))
-      answers.push(new Answer(false, ''))
-      answers.push(new Answer(false, ''))
-      answers.push(new Answer(false, ''))
-      questions.push(new Question('', answers))
-    }
-    return questions;
+  getATest(): Observable<any[]> {
+    return new Observable<any[]>((observer) => {
+      setTimeout(function () {
+        let test = [{
+          name: 'TEST',
+          course: 'Math',
+          questions: [{
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          },
+          {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '2 plus 2',
+            answers: [{
+              description: '4', isCorrect: true
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '7', isCorrect: false
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }, {
+            description: '4 plus 4',
+            answers: [{
+              description: '4', isCorrect: false
+            }, {
+              description: '5', isCorrect: false
+            }, {
+              description: '8', isCorrect: true
+            }, {
+              description: '9', isCorrect: false
+            }]
+          }]
+        }];
+        observer.next(test);
+        // once the code gets here it is successful so returns complete(`)
+        observer.complete();
+      }
+      )
+    })
   }
-
-  // getTestList() {
-  //   // this.createsQuestions();
-  //   for (let j = 0; j < 5; j++) {
-  //     this.savedTests.push(new Test('Course Name', this.createsQuestions(), `Test Name # ${j + 1}`))
-  //     console.log(`${this.savedTests.length}`);
-  //   }
-  //   return new TestList(this.savedTests);
-  // }
 }
+
+

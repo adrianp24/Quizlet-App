@@ -7,8 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { TestComponent } from './components/test/test.component';
 import { QuestionComponent } from './components/question/question.component';
 import { FormsModule } from '@angular/forms';
-import { CreateTestPageComponent } from './components/create-test-page/create-test-page.component';
-import { TakeTestComponent } from './components/test-list/take-test.component';
+import { CreateTestPageComponent } from './components/manage-test-page/create-test-page.component';
+import { TakeTestComponent } from './components/take-test/take-test.component';
 
 @NgModule({
   declarations: [
